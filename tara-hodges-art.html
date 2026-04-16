@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tara Hodges Art</title>
+<meta name="description" content="Original art and commissions by Tara Hodges.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --line: #e5e5e5;
+    --accent: #ac3159;
+    --accent-dark: #8a1e42;
+    --max-width: 1500px;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  h1 { font-size: clamp(2.5rem, 7vw, 5.5rem); }
+  h2 { font-size: clamp(2rem, 5vw, 3.5rem); }
+  h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+  h4 { font-size: 1rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { max-width: 100%; height: auto; display: block; }
+
+  /* Header */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.25rem var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    mix-blend-mode: difference;
+    transition: background 0.3s ease;
+  }
+
+  .site-header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    color: var(--ink);
+    mix-blend-mode: normal;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .site-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .site-nav {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    font-size: 0.95rem;
+  }
+
+  .site-nav a {
+    position: relative;
+    padding: 0.25rem 0;
+    transition: opacity 0.2s;
+  }
+
+  .site-nav a:hover { opacity: 0.7; }
+
+  .cart-link {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: var(--gutter);
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.squarespace-cdn.com/content/v1/69e11a8628c65f221b7eb650/829e7f71-f464-4007-b941-b9ff55499837/WhatsApp+Image+2026-04-16+at+18.27.08+%287%29.jpeg');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+  }
+
+  .hero h1 {
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .hero p {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 0.9rem 2.5rem;
+    font-family: 'Newsreader', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+  }
+
+  .btn-primary {
+    background: #fff;
+    color: var(--ink);
+    border-color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: transparent;
+    color: #fff;
+  }
+
+  .btn-dark {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+  }
+
+  .btn-dark:hover {
+    background: transparent;
+    color: var(--ink);
+  }
+
+  /* Sections */
+  .section {
+    padding: clamp(4rem, 10vw, 8rem) var(--gutter);
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: clamp(2.5rem, 6vw, 5rem);
+    font-style: italic;
+  }
+
+  /* Product grid */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.4s ease;
+  }
+
+  .product-card:hover { transform: translateY(-4px); }
+
+  .product-image {
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    background: #f5f5f5;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .product-card:hover .product-image img {
+    transform: scale(1.04);
+  }
+
+  .product-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-price {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .product-excerpt {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+    max-width: 28ch;
+  }
+
+  .add-to-cart {
+    padding: 0.7rem 1.75rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: #fff;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .add-to-cart:hover {
+    background: transparent;
+    color: var(--ink);
+  }
+
+  /* About section */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+  }
+
+  .about-image {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-text h1 {
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 42ch;
+  }
+
+  /* Footer */
+  .site-footer {
+    background: #fafafa;
+    padding: clamp(3rem, 6vw, 5rem) var(--gutter);
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .footer-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    font-style: italic;
+  }
+
+  .footer-col h4 { margin-bottom: 0.75rem; color: var(--muted); }
+
+  .footer-col p { font-size: 0.95rem; line-height: 1.7; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 3rem auto 0;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .site-nav {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: #fff;
+      color: var(--ink);
+      flex-direction: column;
+      gap: 0;
+      padding: 1rem var(--gutter);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-nav.open { display: flex; }
+
+    .site-nav a {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-nav a:last-child { border-bottom: none; }
+
+    .mobile-toggle { display: block; }
+
+    .about { grid-template-columns: 1fr; }
+    .about-image { max-width: 400px; margin: 0 auto; }
+
+    .footer-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <a href="#" class="site-title">Tara Hodges</a>
+  <nav class="site-nav" id="siteNav">
+    <a href="#shop">Shop</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#" class="cart-link">Cart (0)</a>
+  </nav>
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <line x1="3" y1="8" x2="21" y2="8"/>
+      <line x1="3" y1="16" x2="21" y2="16"/>
+    </svg>
+  </button>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>Tara Hodges Art</h1>
+    <p>Original art &amp; Commissions</p>
+    <a href="#shop" class="btn btn-primary">Shop Now</a>
+  </div>
+</section>
+
+<section class="section" id="shop">
+  <h2 class="section-title">Featured Paintings</h2>
+  <div class="product-grid">
+
+    <article class="product-card">
+      <div class="product-image">
+        <img src="https://images.squarespace-cdn.com/content/v1/69e11a8628c65f221b7eb650/eb4285b4-6536-4be3-8f29-be5d859e79a6/WhatsApp+Image+2026-04-16+at+18.27.08+%285%29.jpeg" alt="Cafe in Hanoi">
+      </div>
+      <h3 class="product-title">Cafe in Hanoi</h3>
+      <div class="product-price">£2,500.00</div>
+      <p class="product-excerpt">Lorem Ipsum Blabla i forgor lol</p>
+      <button class="add-to-cart">Add to cart</button>
+    </article>
+
+    <article class="product-card">
+      <div class="product-image">
+        <img src="https://images.squarespace-cdn.com/content/v1/69e11a8628c65f221b7eb650/2dfed86f-de76-49b6-9841-73957a76d889/WhatsApp+Image+2026-04-16+at+18.27.07.jpeg" alt="Cool Mountains">
+      </div>
+      <h3 class="product-title">Cool Mountains</h3>
+      <div class="product-price">£2,500.00</div>
+      <p class="product-excerpt">Some sort of text that sounds really good.</p>
+      <button class="add-to-cart">Add to cart</button>
+    </article>
+
+    <article class="product-card">
+      <div class="product-image">
+        <img src="https://images.squarespace-cdn.com/content/v1/69e11a8628c65f221b7eb650/9941c30f-0a19-4d96-80da-98c378954d48/WhatsApp+Image+2026-04-16+at+18.27.08+%286%29.jpeg" alt="Life in the Ocean">
+      </div>
+      <h3 class="product-title">Life in the Ocean</h3>
+      <div class="product-price">£2,500.00</div>
+      <p class="product-excerpt">Are we really still writing here</p>
+      <button class="add-to-cart">Add to cart</button>
+    </article>
+
+  </div>
+</section>
+
+<section class="section" id="commissions">
+  <h2 class="section-title">Commissions</h2>
+  <div class="product-grid">
+
+    <article class="product-card">
+      <div class="product-image" style="aspect-ratio: 1/1;">
+        <img src="https://images.squarespace-cdn.com/content/v1/69e11a8628c65f221b7eb650/03ba8383-cb36-4920-b12e-6dd1f058cc21/WhatsApp+Image+2026-04-16+at+18.27.08+%284%29.jpeg" alt="Dog Commission">
+      </div>
+      <h3 class="product-title">Dog</h3>
+      <div class="product-price">£100.00</div>
+      <button class="add-to-cart">Add to cart</button>
+    </article>
+
+    <article class="product-card">
+      <div class="product-image" style="aspect-ratio: 1/1;">
+        <img src="https://images.squarespace-cdn.com/content/v1/69e11a8628c65f221b7eb650/57ef6de8-27ab-43b3-80bb-926474be6206/WhatsApp+Image+2026-04-16+at+18.27.08+%283%29.jpeg" alt="Sculpture Commission">
+      </div>
+      <h3 class="product-title">Sculpture</h3>
+      <div class="product-price">From £0.00</div>
+      <button class="add-to-cart">Enquire</button>
+    </article>
+
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="about">
+    <div class="about-image">
+      <img src="https://images.squarespace-cdn.com/content/v1/69e11a8628c65f221b7eb650/b958f091-541d-4408-9fb6-fccdc39c0fb3/WhatsApp+Image+2026-04-16+at+18.27.08+%285%29.jpeg" alt="About the artist">
+    </div>
+    <div class="about-text">
+      <h1>About Me</h1>
+      <p>Bold art sparks action. Every stroke channels decisive energy, empowering you to transform blank walls into statements.</p>
+      <a href="#contact" class="btn btn-dark">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h2 class="footer-title">Tara Hodges Art</h2>
+    </div>
+    <div class="footer-col">
+      <h4>Location</h4>
+      <p>Exeter</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>email@example.com<br>+44 0000 000000</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Tara Hodges Art. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  // Scrolled header state
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Mobile nav toggle
+  const toggle = document.getElementById('mobileToggle');
+  const nav = document.getElementById('siteNav');
+  toggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+  // Close mobile nav on link click
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+
+  // Simple cart counter (placeholder — wire up to real backend)
+  let cartCount = 0;
+  document.querySelectorAll('.add-to-cart').forEach(btn => {
+    btn.addEventListener('click', () => {
+      cartCount++;
+      document.querySelector('.cart-link').textContent = `Cart (${cartCount})`;
+      btn.textContent = 'Added ✓';
+      setTimeout(() => { btn.textContent = btn.textContent.includes('Enquire') ? 'Enquire' : 'Add to cart'; }, 1500);
+    });
+  });
+</script>
+
+</body>
+</html>
