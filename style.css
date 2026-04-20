@@ -1,0 +1,493 @@
+:root {
+  --bg: #ffffff;
+  --ink: #1a1a1a;
+  --muted: #6b6b6b;
+  --line: #e5e5e5;
+  --accent: #ac3159;
+  --accent-dark: #8a1e42;
+  --max-width: 1500px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.5rem, 7vw, 5.5rem); }
+h2 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+h4 { font-size: 1rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* Header */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.25rem var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  mix-blend-mode: difference;
+  transition: background 0.3s ease;
+}
+
+.site-header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  color: var(--ink);
+  mix-blend-mode: normal;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header.solid {
+  background: var(--bg);
+  color: var(--ink);
+  mix-blend-mode: normal;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.site-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.site-nav {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.site-nav a {
+  position: relative;
+  padding: 0.25rem 0;
+  transition: opacity 0.2s;
+}
+
+.site-nav a:hover { opacity: 0.7; }
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* Buttons — sharp rectangular, outline only */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 2.25rem;
+  font-family: 'Newsreader', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1.5px solid currentColor;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+  background: transparent;
+}
+
+.btn-light {
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn-light:hover {
+  background: #fff;
+  color: var(--ink);
+}
+
+.btn-dark {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.btn-dark:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: var(--gutter);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.squarespace-cdn.com/content/v1/69e11a8628c65f221b7eb650/829e7f71-f464-4007-b941-b9ff55499837/WhatsApp+Image+2026-04-16+at+18.27.08+%287%29.jpeg');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero h1 {
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.hero p {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Page header (non-hero pages) */
+.page-header {
+  padding: clamp(4rem, 10vw, 7rem) var(--gutter) clamp(2rem, 5vw, 4rem);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-header h1 { font-style: italic; }
+
+/* Sections */
+.section {
+  padding: clamp(3rem, 8vw, 6rem) var(--gutter);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 6vw, 5rem);
+  font-style: italic;
+}
+
+/* Commissions */
+.commissions-wrap {
+  background-color: #66021F;
+  color: #ffe9ec;
+}
+
+.commissions-wrap .section {
+  font-size: 19px;
+  text-align: center;
+}
+
+.commissions-wrap .section > p {
+  max-width: 52ch;
+  margin: 0 auto 2.5rem;
+  line-height: 2;
+  font-size: 1.05rem;
+  opacity: 0.9;
+  letter-spacing: 0.01em;
+  border-bottom: 1px solid rgba(255,233,236,0.2);
+  padding-bottom: 2.5rem;
+}
+
+.price-tables {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+.price-table {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,233,236,0.25);
+  border-radius: 0;
+  min-width: 220px;
+  overflow: hidden;
+}
+
+.price-table-header {
+  background: rgba(255,255,255,0.12);
+  padding: 0.75rem 1.5rem;
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.price-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.price-table td {
+  padding: 0.55rem 1.5rem;
+  border-bottom: 1px solid rgba(255,233,236,0.12);
+}
+
+.price-table tr:last-child td { border-bottom: none; }
+
+.price-table td:last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+}
+
+.price-note {
+  font-size: 0.9rem;
+  opacity: 0.75;
+  font-style: italic;
+  margin-top: -1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover { transform: translateY(-4px); }
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  background: #f5f5f5;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-image img { transform: scale(1.04); }
+
+.product-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-price {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.product-excerpt {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  max-width: 28ch;
+}
+
+.add-to-cart {
+  padding: 0.65rem 1.75rem;
+  font-family: 'Newsreader', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.add-to-cart:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+.commissions-wrap .add-to-cart {
+  color: #ffe9ec;
+  border-color: rgba(255,233,236,0.6);
+}
+
+.commissions-wrap .add-to-cart:hover {
+  background: rgba(255,233,236,0.15);
+}
+
+/* About section */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.about-image {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-text h1 {
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 42ch;
+}
+
+/* Gallery grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img { transform: scale(1.04); }
+
+/* Footer */
+.site-footer {
+  background: #fafafa;
+  padding: clamp(3rem, 6vw, 5rem) var(--gutter);
+  border-top: 1px solid var(--line);
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.footer-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.footer-col h4 { margin-bottom: 0.75rem; color: var(--muted); }
+.footer-col p { font-size: 0.95rem; line-height: 1.7; }
+
+.footer-bottom {
+  max-width: var(--max-width);
+  margin: 3rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .site-nav {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    color: var(--ink);
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem var(--gutter);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .site-nav.open { display: flex; }
+
+  .site-nav a {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .site-nav a:last-child { border-bottom: none; }
+
+  .mobile-toggle { display: block; }
+
+  .about { grid-template-columns: 1fr; }
+  .about-image { max-width: 400px; margin: 0 auto; }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-buttons { flex-direction: column; align-items: center; }
+}

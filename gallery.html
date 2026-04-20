@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tara Hodges Art</title>
-<meta name="description" content="Original art and commissions by Tara Hodges.">
+<title>Gallery — Tara Hodges Art</title>
+<meta name="description" content="Gallery of original works and commissions by Tara Hodges.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
@@ -12,13 +12,13 @@
 </head>
 <body>
 
-<header class="site-header" id="siteHeader">
+<header class="site-header solid" id="siteHeader">
   <a href="/" class="site-title">Tara Hodges</a>
   <nav class="site-nav" id="siteNav">
     <a href="/shop.html">Shop</a>
     <a href="/commissions.html">Commissions</a>
     <a href="/gallery.html">Gallery</a>
-    <a href="#about">About</a>
+    <a href="/#about">About</a>
   </nav>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -28,33 +28,37 @@
   </button>
 </header>
 
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <h1>Tara Hodges Art</h1>
-    <p>Original art &amp; Commissions</p>
-    <div class="hero-buttons">
-      <a href="/shop.html" class="btn btn-light">Shop Originals</a>
-      <a href="/commissions.html" class="btn btn-light">Commissions</a>
-      <a href="/gallery.html" class="btn btn-light">Gallery</a>
+<div class="page-header">
+  <h1>Gallery</h1>
+</div>
+
+<section class="section">
+  <div class="gallery-grid">
+
+    <div class="gallery-item">
+      <img src="https://images.squarespace-cdn.com/content/v1/69e11a8628c65f221b7eb650/eb4285b4-6536-4be3-8f29-be5d859e79a6/WhatsApp+Image+2026-04-16+at+18.27.08+%285%29.jpeg" alt="Cafe in Hanoi">
     </div>
+
+    <div class="gallery-item">
+      <img src="https://images.squarespace-cdn.com/content/v1/69e11a8628c65f221b7eb650/2dfed86f-de76-49b6-9841-73957a76d889/WhatsApp+Image+2026-04-16+at+18.27.07.jpeg" alt="Cool Mountains">
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.squarespace-cdn.com/content/v1/69e11a8628c65f221b7eb650/9941c30f-0a19-4d96-80da-98c378954d48/WhatsApp+Image+2026-04-16+at+18.27.08+%286%29.jpeg" alt="Life in the Ocean">
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.squarespace-cdn.com/content/v1/69e11a8628c65f221b7eb650/03ba8383-cb36-4920-b12e-6dd1f058cc21/WhatsApp+Image+2026-04-16+at+18.27.08+%284%29.jpeg" alt="Dog Commission">
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.squarespace-cdn.com/content/v1/69e11a8628c65f221b7eb650/829e7f71-f464-4007-b941-b9ff55499837/WhatsApp+Image+2026-04-16+at+18.27.08+%287%29.jpeg" alt="Portrait">
+    </div>
+
   </div>
 </section>
 
-<section class="section" id="about">
-  <div class="about">
-    <div class="about-image">
-      <img src="tara-portrait.jpeg" alt="About the artist">
-    </div>
-    <div class="about-text">
-      <h1>About Me</h1>
-      <p>Hi, I'm Tara Hodges. I'm a student artist currently studying law at university. I specialise in oil paintings and graphite sketches.</p>
-      <a href="mailto:taraelisehodges@gmail.com" class="btn btn-dark">Contact</a>
-    </div>
-  </div>
-</section>
-
-<footer class="site-footer" id="contact">
+<footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-col">
       <h2 class="footer-title">Tara Hodges Art</h2>
@@ -79,11 +83,6 @@
 </footer>
 
 <script>
-  const header = document.getElementById('siteHeader');
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 50);
-  });
-
   const toggle = document.getElementById('mobileToggle');
   const nav = document.getElementById('siteNav');
   toggle.addEventListener('click', () => nav.classList.toggle('open'));

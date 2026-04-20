@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop Originals — Tara Hodges Art</title>
+<meta name="description" content="Original paintings available to purchase by Tara Hodges.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header solid" id="siteHeader">
+  <a href="/" class="site-title">Tara Hodges</a>
+  <nav class="site-nav" id="siteNav">
+    <a href="/shop.html">Shop</a>
+    <a href="/commissions.html">Commissions</a>
+    <a href="/gallery.html">Gallery</a>
+    <a href="/#about">About</a>
+  </nav>
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <line x1="3" y1="8" x2="21" y2="8"/>
+      <line x1="3" y1="16" x2="21" y2="16"/>
+    </svg>
+  </button>
+</header>
+
+<div class="page-header">
+  <h1>Shop Originals</h1>
+</div>
+
+<section class="section">
+  <div class="product-grid">
+
+    <article class="product-card">
+      <div class="product-image">
+        <img src="https://images.squarespace-cdn.com/content/v1/69e11a8628c65f221b7eb650/eb4285b4-6536-4be3-8f29-be5d859e79a6/WhatsApp+Image+2026-04-16+at+18.27.08+%285%29.jpeg" alt="Cafe in Hanoi">
+      </div>
+      <h3 class="product-title">Cafe in Hanoi</h3>
+      <div class="product-price">£2,500.00</div>
+      <p class="product-excerpt">Lorem Ipsum Blabla i forgor lol</p>
+      <button class="add-to-cart">Add to cart</button>
+    </article>
+
+    <article class="product-card">
+      <div class="product-image">
+        <img src="https://images.squarespace-cdn.com/content/v1/69e11a8628c65f221b7eb650/2dfed86f-de76-49b6-9841-73957a76d889/WhatsApp+Image+2026-04-16+at+18.27.07.jpeg" alt="Cool Mountains">
+      </div>
+      <h3 class="product-title">Cool Mountains</h3>
+      <div class="product-price">£2,500.00</div>
+      <p class="product-excerpt">Some sort of text that sounds really good.</p>
+      <button class="add-to-cart">Add to cart</button>
+    </article>
+
+    <article class="product-card">
+      <div class="product-image">
+        <img src="https://images.squarespace-cdn.com/content/v1/69e11a8628c65f221b7eb650/9941c30f-0a19-4d96-80da-98c378954d48/WhatsApp+Image+2026-04-16+at+18.27.08+%286%29.jpeg" alt="Life in the Ocean">
+      </div>
+      <h3 class="product-title">Life in the Ocean</h3>
+      <div class="product-price">£2,500.00</div>
+      <p class="product-excerpt">Are we really still writing here</p>
+      <button class="add-to-cart">Add to cart</button>
+    </article>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h2 class="footer-title">Tara Hodges Art</h2>
+    </div>
+    <div class="footer-col">
+      <h4>Social Media</h4>
+      <a href="https://www.instagram.com/tarahodgesart/">Instagram: @tarahodgesart</a><br>
+      <a href="https://www.tiktok.com/@taraelise.hodges">Tiktok: @taraelise.hodges</a>
+    </div>
+    <div class="footer-col">
+      <h4>Location</h4>
+      <p>Exeter</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>taraelisehodges@gmail.com<br>+44 7831 778511</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Tara Hodges Art. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('mobileToggle');
+  const nav = document.getElementById('siteNav');
+  toggle.addEventListener('click', () => nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+
+  let cartCount = 0;
+  document.querySelectorAll('.add-to-cart').forEach(btn => {
+    btn.addEventListener('click', () => {
+      cartCount++;
+      btn.textContent = 'Added ✓';
+      setTimeout(() => { btn.textContent = 'Add to cart'; }, 1500);
+    });
+  });
+</script>
+
+</body>
+</html>
